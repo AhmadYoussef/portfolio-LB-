@@ -1,0 +1,10 @@
+[build]
+# Pin npm to avoid the "Exit handler never called!" crash you hit earlier,
+# prefer `npm ci` when the lockfile exists, otherwise fall back to `npm install`,
+# verify astro exists, then build.
+command = "npm i -g npm@10.8.2 && if [ -f package-lock.json ]; then npm ci --no-audit --no-fund; else npm install --no-audit --no-fund; fi && npx astro --version && npm run build"
+publish = "dist"
+
+[build.environment]
+NODE_VERSION = "22.21.1"
+NPM_CONFIG_PRODUCTION = "false"   # <- ensures devDependencies (Astro) are installed
