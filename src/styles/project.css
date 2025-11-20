@@ -1,0 +1,38 @@
+.project {
+    display: flex;
+    gap: 1.5rem;
+    padding-top: 1.5rem !important;
+    cursor: pointer;
+    transition: all .5s ease-in-out ;
+    overflow: auto;          /* or scroll */
+
+    /* Firefox */
+    scrollbar-width: none;   /* hides scrollbar, keeps scroll */
+
+    /* IE & old Edge */
+    -ms-overflow-style: none;
+}
+/* WebKit browsers (Chrome, Safari, Edge, Opera) */
+.project::-webkit-scrollbar {
+    display: none;
+}
+
+.project.focus {
+    max-width: 100vw;
+    height: 88vh;
+}
+.project .left {
+    text-align: right;
+    min-width: 250px;
+}
+
+.project .right .project-image {
+    min-width: 60vw;
+    max-height: 400px;
+}
+
+.project.focus .right .project-image {
+    height: unset;
+    max-height: unset;
+
+}

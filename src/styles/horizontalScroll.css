@@ -1,0 +1,29 @@
+.horizontal-drag-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    gap: 1rem;
+}
+
+/* Optional: hide scrollbar */
+.horizontal-drag-scroll {
+    user-select: none;
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;     /* IE/old Edge */
+
+}
+.horizontal-drag-scroll::-webkit-scrollbar {
+    display: none;                /* Chrome/Safari/Edge */
+}
+
+.horizontal-drag-scroll.dragging {
+    cursor: grabbing;
+}
+
+.horizontal-drag-scroll img {
+    -webkit-user-drag: none;  /* Safari/Chrome */
+    user-select: none;        /* avoid text/image selection */
+    pointer-events: auto;     /* still clickable if needed */
+}
