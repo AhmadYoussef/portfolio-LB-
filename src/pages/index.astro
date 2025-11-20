@@ -1,17 +1,27 @@
 ---
-import '../styles/global.css';
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Greeting from '../components/Greeting';
-import {getCollection} from "astro:content";
+import {projects} from "../data/Projects";
+import {categories} from "../data/categories";
+import Category from "../components/Category.astro";
+const pageTitle = "Portfolio LB";
 
-const allPosts = await getCollection("blog");
-const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+const featuredProjects = [...projects]
+  .sort((a, b) => b.year - a.year)
+  .slice(0, 3);
 
-const pageTitle = "Home Page";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<h2>My awesome blog subtitle</h2>
-
-	<Greeting client:load messages={["Hi", "Hello", "Howdy", "Hey there"]} />
+    <div class="grid center">
+        {categories.map(cat => <Category category={cat} />)}
+    </div>
 </BaseLayout>
+
+<style scope>
+    .grid {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        padding: 1rem 0;
+    }
+</style>

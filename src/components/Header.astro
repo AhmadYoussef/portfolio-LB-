@@ -1,0 +1,50 @@
+---
+import Navigation from "./Navigation.astro";
+
+---
+
+
+<header class="header">
+    <Navigation />
+
+        <div class="title">
+            <a href="/">
+                Lelas Beslaney
+            </a>
+        </div>
+
+    <div class="search">
+        Search
+    </div>
+</header>
+
+
+<style scoped>
+    .header {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: end;
+        padding: 0.6rem;
+    }
+
+    .header .title {
+        text-align: center;
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .header .title a {
+        text-decoration: none;
+        color: black;
+    }
+    .header .title a:hover, .header .title a:active{
+        color: black;
+    }
+    .header .nav {
+        justify-self: start;
+    }
+    .header .search {
+        justify-self: end;
+    }
+</style>

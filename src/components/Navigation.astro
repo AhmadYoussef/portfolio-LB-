@@ -1,0 +1,93 @@
+<nav class="nav">
+    <div id="nav-button" class="logo-container">
+        <div class="logo">LB</div>
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+
+
+    <ul class="menu">
+        <li>Interal</li>
+        <li>Drawing</li>
+        <li>Test</li>
+    </ul>
+</nav>
+
+<style scoped>
+    .nav {
+        cursor: pointer;
+    }
+
+    .nav .logo-container {
+        position: relative;
+        height: 30px;
+        width: 30px;
+    }
+    .nav .logo-container .logo {
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .nav .logo-container:hover .logo, .nav .logo-container.open .logo {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    .nav .logo-container .menu-icon {
+        position: absolute;
+        top: 5px;
+        left: 3px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        transform: scale(0);
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav .logo-container .menu-icon span {
+        width: 20px;
+        height: 2px;
+        background: #000;
+        border-radius: 2px;
+        transform-origin: center;
+    }
+
+    .nav .logo-container:hover .menu-icon,  .nav .logo-container.open .menu-icon {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    .nav .menu {
+        position: absolute;
+        padding: 10px;
+        left: 0;
+        list-style: none;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .nav .menu li {
+        margin: 0.25rem 0;
+    }
+
+
+    /* Slide menu in from the left */
+    .nav .logo-container.open + .menu {
+        transform: translateX(0);
+    }
+</style>
+
+<script>
+    const navBtn = document.getElementById("nav-button");
+
+    navBtn.addEventListener("click", () => {
+        navBtn.classList.toggle("open");
+    });
+</script>

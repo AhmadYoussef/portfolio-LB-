@@ -1,0 +1,35 @@
+---
+import {projects} from "../../data/Projects";
+import Project from "../../components/Project.astro";
+import {Category} from "../../data/Variables/Categories";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+
+export async function getStaticPaths() {
+  return Object.values(Category).map(slug => {
+    const catProjects = projects.filter(p => p.category.includes(slug));
+    return {
+      params: { category: slug },
+      props: {
+        catProjects: catProjects
+      }
+    }
+  });
+}
+
+const { category } = Astro.params;
+const { catProjects } = Astro.props;
+const pageTitle = "Portfolio LB";
+
+---
+<BaseLayout pageTitle={pageTitle}>
+  <section class="project-container">
+    <h2 class="center">{category}</h2>
+    {catProjects.map(prj => <Project project={prj} />)}
+  </section>
+</BaseLayout>
+
+
+<style scoped>
+
+</style>

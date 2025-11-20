@@ -1,0 +1,18 @@
+export enum Tool {
+  AutoCAD = "AutoCAD",
+  Revit = "Revit",
+  ArchiCAD = "ArchiCAD",
+  SketchUp = "SketchUp",
+  VRay = "V-Ray",
+  Lumion = "Lumion",
+  Twinmotion = "Twinmotion",
+  Enscape = "Enscape",
+  Photoshop = "Photoshop",
+  Illustrator = "Illustrator",
+  InDesign = "InDesign",
+  Procreate = "Procreate",
+  Pencil = "Pencil",
+  Fineliner = "Fineliner",
+  InkPen = "Ink Pen",
+  Graphite = "Graphite",
+}

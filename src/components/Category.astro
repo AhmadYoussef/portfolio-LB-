@@ -1,0 +1,32 @@
+---
+import {Image} from "astro:assets";
+
+const category = Astro.props.category;
+---
+
+
+<section class="category">
+    <figure>
+        <a href={`/work/${category.slug}`} class="card">
+            <Image
+                    src={category.image}
+                    alt="Residential architecture category"
+                    width={450}
+                    height={280}
+            />
+        </a>
+        <figcaption>
+
+            <h2>
+                <a href={`/work/${category.slug}`} class="card">
+                  {category.label}
+                </a>
+            </h2>
+            <p>{category.description}</p>
+        </figcaption>
+    </figure>
+</section>
+
+<style scoped>
+
+</style>
