@@ -78,7 +78,7 @@ export default function HorizontalDragScroll({ containerRef, isFocus, onClick, c
 
   if(!isFocus){
     return (
-      <section ref={containerRef} className="project center"  onClick={onClick}>
+      <section ref={containerRef} className="project noScroll center"  onClick={onClick}>
         {children}
       </section>
     );
@@ -87,7 +87,7 @@ export default function HorizontalDragScroll({ containerRef, isFocus, onClick, c
   return (
     <section
       ref={containerRef}
-      className={`project focus horizontal-drag-scroll`}
+      className={`project noScroll focus horizontal-drag-scroll`}
       onMouseDown={handleMouseDown}
       onMouseLeave={handleMouseUpOrLeave}
       onMouseUp={handleMouseUpOrLeave}

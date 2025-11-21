@@ -1,9 +1,9 @@
 .project {
-    display: flex;
-    gap: 1.5rem;
-    padding-top: 1.5rem !important;
-    cursor: pointer;
-    transition: all .5s ease-in-out ;
+    overflow: auto;
+    height: 100%;
+}
+
+.project.noScroll{
     overflow: auto;          /* or scroll */
 
     /* Firefox */
@@ -13,25 +13,29 @@
     -ms-overflow-style: none;
 }
 /* WebKit browsers (Chrome, Safari, Edge, Opera) */
-.project::-webkit-scrollbar {
+.project.noScroll::-webkit-scrollbar {
     display: none;
 }
 
-.project.focus {
-    max-width: 100vw;
-    height: 88vh;
+
+.project .project-info {
+    display: flex;
+    gap: 1.5rem;
+    cursor: pointer;
+    transition: all .5s ease-in-out ;
+    padding-top: 1.5rem !important;
 }
-.project .left {
+.project .project-info .left {
     text-align: right;
     min-width: 250px;
 }
 
-.project .right .project-image {
+.project.focus .project-info .right .project-image {
     min-width: 60vw;
     max-height: 400px;
 }
 
-.project.focus .right .project-image {
+.project.focus .project-info .right .project-image {
     height: unset;
     max-height: unset;
 

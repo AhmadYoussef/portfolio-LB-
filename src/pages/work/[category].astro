@@ -8,7 +8,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
   return Object.values(Category).map(slug => {
-    const catProjects = projects.filter(p => p.category.includes(slug));
+    const catProjects = projects.filter(p => slug === "all" || p.category.includes(slug));
     return {
       params: {category: slug},
       props: {
