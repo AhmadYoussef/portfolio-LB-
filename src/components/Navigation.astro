@@ -1,3 +1,7 @@
+---
+import {categories} from "../data/categories";
+console.log(Astro.params.category)
+---
 <nav class="nav">
     <div id="nav-button" class="logo-container">
         <div class="logo">LB</div>
@@ -9,26 +13,32 @@
     </div>
 
 
-
     <ul class="menu">
-        <li>Interal</li>
-        <li>Drawing</li>
-        <li>Test</li>
+        <li><a class={!Astro.params.category ? "active" : ""} href="/">Home</a></li>
+      {categories.map(item =>
+              <li>
+                  <a class={item.slug === Astro.params.category ? "active" : ""} href=`/work/${item.slug}`>
+                    {item.label}
+                  </a>
+              </li>
+      )}
     </ul>
 </nav>
 
 <style scoped>
     .nav {
         cursor: pointer;
+        margin-left: 10px;
     }
 
     .nav .logo-container {
         position: relative;
-        height: 30px;
-        width: 30px;
+        height: 35px;
+        width: 35px;
     }
+
     .nav .logo-container .logo {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         font-weight: 700;
         letter-spacing: 1px;
         transition: transform 0.3s ease, opacity 0.3s ease;
@@ -41,7 +51,7 @@
 
     .nav .logo-container .menu-icon {
         position: absolute;
-        top: 5px;
+        top: 13px;
         left: 3px;
         display: flex;
         flex-direction: column;
@@ -59,7 +69,7 @@
         transform-origin: center;
     }
 
-    .nav .logo-container:hover .menu-icon,  .nav .logo-container.open .menu-icon {
+    .nav .logo-container:hover .menu-icon, .nav .logo-container.open .menu-icon {
         transform: scale(1);
         opacity: 1;
     }
@@ -76,7 +86,13 @@
     .nav .menu li {
         margin: 0.25rem 0;
     }
-
+    .nav .menu li a {
+        text-decoration: none;
+        color: #6b6b6b;
+    }
+    .nav .menu li a.active {
+        text-decoration: underline;
+    }
 
     /* Slide menu in from the left */
     .nav .logo-container.open + .menu {
@@ -85,9 +101,9 @@
 </style>
 
 <script>
-    const navBtn = document.getElementById("nav-button");
+  const navBtn = document.getElementById("nav-button");
 
-    navBtn.addEventListener("click", () => {
-        navBtn.classList.toggle("open");
-    });
+  navBtn.addEventListener("click", () => {
+    navBtn.classList.toggle("open");
+  });
 </script>

@@ -1,20 +1,21 @@
 ---
 import Navigation from "./Navigation.astro";
+import {categories} from "../data/categories";
 
 ---
 
 
 <header class="header">
-    <Navigation />
-
-        <div class="title">
-            <a href="/">
-                Lelas Beslaney
-            </a>
-        </div>
-
+    <Navigation/>
+    <div class="mainNav">
+      {categories.map(item =>
+              <a class={item.slug === Astro.params.category ? "active" : ""} href=`/work/${item.slug}`>
+                {item.label}
+              </a>
+      )}
+    </div>
     <div class="search">
-        Search
+        &#128269; Search
     </div>
 </header>
 
@@ -30,24 +31,31 @@ import Navigation from "./Navigation.astro";
         background: white;
     }
 
-    .header .title {
-        text-align: center;
-        margin: 0;
-        font-size: 1.5rem;
-        font-weight: 700;
+    .header .mainNav {
+        display: flex;
+        gap: 1rem;
     }
 
-    .header .title a {
+    .header .mainNav a {
+        color: #6b6b6b;
+        font-size: 1rem;
         text-decoration: none;
+    }
+
+    .header .mainNav a:hover, .header .mainNav a:active {
         color: black;
     }
-    .header .title a:hover, .header .title a:active{
-        color: black;
+    .header .mainNav a.active {
+        text-decoration: underline;
     }
+
+
     .header .nav {
         justify-self: start;
     }
+
     .header .search {
+        color: #6b6b6b;
         justify-self: end;
     }
 </style>

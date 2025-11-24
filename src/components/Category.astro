@@ -11,8 +11,6 @@ const category = Astro.props.category;
             <Image
                     src={category.image}
                     alt="Residential architecture category"
-                    width={450}
-                    height={280}
             />
         </a>
         <figcaption>
@@ -28,5 +26,20 @@ const category = Astro.props.category;
 </section>
 
 <style scoped>
+    .category{
 
+    }
+    .category a{
+        text-decoration: none;
+    }
+    .category a img{
+        height: 400px;
+        width: auto;
+        object-fit: contain;
+        display: block;
+        margin: auto;
+    }
+    .category a, .category a:hover, .category a:active{
+        color: black;
+    }
 </style>

@@ -1,9 +1,9 @@
 import {Category} from "./Variables/Categories.ts";
-import ResidentialImg from "../assets/images/category/residential.png"
-import InteriorImg from "../assets/images/category/interior.png"
+import ResidentialImg from "../assets/images/category/residential.jpeg"
+import InteriorImg from "../assets/images/category/interior.jpeg"
 import CompetitionImg from "../assets/images/category/competition.png"
 import CommercialImg from "../assets/images/category/commercial.png"
-import DrawingImg from "../assets/images/category/drawing.png"
+import DrawingImg from "../assets/images/category/drawing.jpeg"
 import AllCatImg from "../assets/images/category/all.png"
 export interface CategoryDefinition {
   slug: Category;       // URL part, e.g. "frontend"
@@ -25,7 +25,7 @@ export const categories: CategoryDefinition[] = [
     description: "Interior layouts, material concepts, and space planning.",
     image: InteriorImg,
   },
-  {
+ /* {
     slug: Category.Commercial,
     label: "Commercial Projects",
     description: "Office spaces, retail stores, and public interiors.",
@@ -37,17 +37,17 @@ export const categories: CategoryDefinition[] = [
     label: "Competition Entries",
     description: "Concept proposals for national and international competitions.",
     image: CompetitionImg
-  },
+  },*/
   {
     slug: Category.Drawing,
     label: "Drawing & Sketches",
     description: "Hand sketches, visual studies, character drawings, and artistic works.",
     image: DrawingImg
   },
-  {
+ /* {
     slug: Category.All,
     label: "All",
     description: "Hand sketches, visual studies, character drawings, and artistic works.",
     image: AllCatImg
-  },
+  },*/
 ];

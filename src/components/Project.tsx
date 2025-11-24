@@ -30,6 +30,7 @@ const ProjectItem: FunctionalComponent<Props> = ({project}) => {
           <div className="projLogo"/>
           <h3>{project.title}</h3>
           <div className="city">City</div>
+          <div className="year">2025</div>
         </div>
         <div className="right">
           {/* Note: in React/Preact, use <img>, not astro:assets <Image> */}

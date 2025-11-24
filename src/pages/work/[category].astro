@@ -24,7 +24,6 @@ const pageTitle = "Portfolio LB";
 ---
 <BaseLayout pageTitle={pageTitle}>
     <section class="project-container">
-        <h2 class="center">{category}</h2>
       {catProjects.map(prj =>
               <Project client:load
                        project={prj}/>

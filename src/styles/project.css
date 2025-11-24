@@ -30,6 +30,25 @@
     min-width: 250px;
 }
 
+.project .project-info .left .projLogo {
+    width: 35px;
+    height: 35px;
+    background-color: black;
+    margin-left: auto;
+}
+.project .project-info .left h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.project .project-info .left .city {
+    font-size: .9rem;
+    color: #6b6b6b;
+}
+.project .project-info .left .year {
+    font-size: .8rem;
+    color: #6b6b6b;
+}
+
 .project.focus .project-info .right .project-image {
     min-width: 60vw;
     max-height: 400px;
